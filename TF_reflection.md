@@ -457,6 +457,110 @@ After connecting Add Task to the backend, I updated the Generate Schedule button
 
 Phase 4 - Algorithmic Layer
 
+Prompt 11 - Planning Algorithm and Confirming our Implementation is Appropriate:
+
+I am working on Phase 4 of PawPal+.
+
+Please review my current pawpal_system.py and suggest a simple beginner-friendly algorithm plan for:
+
+1. sorting tasks by time
+2. filtering tasks by completion status or pet
+3. detecting conflicts when two tasks share the same time
+4. reasoning about recurring task logic for daily or weekly tasks
+
+Please:
+
+- explain the ideas clearly in simple words
+- keep the algorithms lightweight
+- avoid advanced optimization
+- focus on what is good enough for a beginner-friendly pet scheduler
+
+<br>
+
+RESULT:
+
+![alt text](image-45.png)
+![alt text](image-46.png)
+![alt text](image-47.png)
+![alt text](image-48.png)
+
+I used Copilot Plan mode to review the algorithmic layer of PawPal+. I focused on simple approaches for sorting, filtering, conflict detection, and recurring task logic so that I could both implement and explain the system clearly.
+
+<br>
+
+Sorting -> All Tasks are already Sorted by Time
+
+<br>
+
+Filtering -> Already exists by completionstatus
+
+<br>
+
+Prompt 12 - Conflict Detection (Ask Mode):
+
+Please explain my detect_conflicts() method in simple words.
+
+Focus on:
+
+1. how tasks are grouped by time
+2. why only times with more than one task are returned
+3. what kind of conflicts this algorithm can detect
+4. what tradeoff this algorithm makes compared to a more advanced calendar system
+
+<br>
+
+RESULT:
+
+![alt text](image-49.png)
+![alt text](image-50.png)
+
+I verified that the scheduler can detect a simple conflict when two tasks are scheduled at the same exact time. This conflict detection is lightweight and beginner-friendly, but it only checks exact time matches rather than more advanced overlapping durations.
+
+<br>
+
+Prompt 13 - Checking for Recurring Logic (Ask Mode):
+
+Please explain a simple beginner-friendly way to handle recurring task logic in PawPal+.
+
+Focus on:
+
+1. what should happen when a daily task is marked complete
+2. what should happen when a weekly task is marked complete
+3. whether this logic should live in Task or Scheduler
+4. what a simple implementation approach would be without making the system too complex
+
+<br>
+
+RESULT:
+
+![alt text](image-51.png)
+![alt text](image-52.png)
+![alt text](image-53.png)
+
+I reasoned through how recurring tasks should work in the scheduler. A simple approach is that when a daily or weekly task is completed, the current task is marked done and a new future task is created based on the task’s frequency. I treated this as a design decision rather than fully optimizing it.
+
+<br>
+
+Prompt 14 - Debuging 1 Edge Case:
+
+Help me think through one edge case for my PawPal+ scheduler.
+
+I want to analyze the case where task times may not all use a consistent HH:MM format, such as "8:00" vs "08:00".
+
+Please explain:
+
+1. why this can affect string-based sorting
+2. what bug it could cause
+3. what a simple beginner-friendly fix would be
+4. whether input validation would be helpful in app.py
+
+<br>
+
+RESULT:
+
+![alt text](image-54.png)
+![alt text](image-55.png)
+
 ---
 
 ---
