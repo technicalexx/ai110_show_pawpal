@@ -10,7 +10,12 @@ I opened the PawPal+ starter project in VS Code, created the environment, instal
 
 ---
 
-===
+---
+
+---
+
+---
+
 You are building **PawPal+**, a Streamlit app that helps a pet owner plan care tasks for their pet.
 
 ## Scenario
