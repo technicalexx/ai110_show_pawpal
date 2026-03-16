@@ -282,7 +282,180 @@ Common Student Confusion Areas:
 
 ---
 
-Phase 3 -
+Phase 3 - UI Integration:
+
+Prompt 7 - Planning the Connection between UI and Backend:
+
+I am working on Phase 3 of PawPal+.
+
+I need to connect my backend classes from pawpal_system.py to the Streamlit UI in app.py.
+
+Please give me a simple beginner-friendly plan for:
+
+1. importing the backend classes into app.py
+2. storing the Owner object in st.session_state
+3. implementing one real UI action such as Add Pet or Add Task
+4. updating the UI so the change is visible after interaction
+
+Please also explain the common Streamlit state reset bug in simple words.
+
+Keep the solution simple and avoid unnecessary complexity.
+
+<br>
+
+RESULT:
+
+![alt text](image-26.png)
+![alt text](image-27.png)
+![alt text](image-28.png)
+
+<br>
+
+I used Copilot Plan mode to think through how to connect the backend system to the Streamlit UI. This helped me focus on the minimum needed for this phase: import the backend classes, store data in st.session_state, and wire one real UI action to backend logic.
+
+<br>
+
+Importing our Classes from pawpal_system to app:
+
+from pawpal_system import Owner, Pet, Task, Scheduler:
+
+![alt text](image-29.png)
+
+I connected the UI to the logic layer by importing the backend classes from pawpal_system.py into app.py. This step made it possible for user actions in the Streamlit interface to create and update real backend objects.
+
+<br>
+
+Understanding st.session_state:
+
+- Streamlit reruns the whole file every time a button is clicked
+
+- without st.session_state, the task list would reset to empty
+
+- st.session_state keeps the task data alive during the session
+
+<br>
+
+Identifying the Common State Reset Bug:
+
+- We need to be able to create an owner and avoid pets/tasks added earlier to disappear:
+
+- Also, need to check if the pet was added previously to the owner or it's a new pet not stored previously (to avoid duplicates)
+
+<br>
+
+Prompt 8 - Understanding State Reset Bug (Ask Mode):
+
+Explain the common Streamlit state reset bug in simple words using my current PawPal+ files.
+
+Please explain:
+
+1. why Streamlit reruns app.py after button clicks
+2. what would happen if I create Owner normally at the top of app.py
+3. why pets/tasks would disappear across interactions
+4. how st.session_state fixes this problem
+5. how this applies specifically to my current app.py and pawpal_system.py
+
+<br>
+
+RESULT:
+
+![alt text](image-30.png)
+![alt text](image-31.png)
+
+<br>
+
+Streamlit reruns app.py every interaction. If I create Owner, Pet, or Task as normal variables, they get recreated and previous data is lost. Using st.session_state keeps those objects alive across reruns.
+
+<br>
+
+I used Copilot Ask mode to understand the common Streamlit state reset bug. I learned that Streamlit reruns the entire script after each interaction, which causes normal variables to be recreated. Without st.session_state, backend objects like Owner, Pet, and Task would reset and the app would lose data.
+
+<br>
+
+Prompt 9 - Tracing UI action -> Backend Logic (Ask Mode):
+
+Trace the Add Task UI → backend logic flow in my PawPal+ app.
+
+Explain:
+
+1. what happens in the Streamlit UI
+2. what happens when the Add task button is clicked
+3. how the Owner object is retrieved from st.session_state
+4. how the Task object is created
+5. how it is attached to a Pet
+6. how the updated data appears in the UI
+
+<br>
+
+RESULT:
+
+![alt text](image-32.png)
+![alt text](image-33.png)
+![alt text](image-34.png)
+
+<br>
+
+Prompt 10 - Adding Task/Backend Connection (Agent Mode):
+
+Update my current app.py to connect the Add task button to the real backend classes from pawpal_system.py.
+
+Requirements:
+
+- store the Owner object in st.session_state
+- update the Owner name from the text input
+- check if the current pet already exists in the Owner's pets list
+- if not, create the Pet and add it to the Owner
+- when Add task is clicked, create a real Task object and add it to that pet
+- add simple inputs for task time and frequency if needed
+- display the current tasks using the real backend objects instead of only the placeholder session_state.tasks list
+- keep the code beginner-friendly
+
+<br>
+
+RESULT:
+
+![alt text](image-35.png)
+![alt text](image-36.png)
+
+![alt text](image-37.png)
+![alt text](image-38.png)
+![alt text](image-39.png)
+![alt text](image-40.png)
+
+<br>
+
+I used Copilot Agent mode to replace the placeholder Add Task behavior with real backend object creation. The app now stores an Owner in st.session_state, creates or reuses a Pet, creates a Task object from the UI inputs, and adds that task to the pet.
+
+<br>
+
+Prompt 10 - Generating Schedule using Agent Mode:
+
+Help me update the Generate schedule button in app.py so it uses my real Scheduler class.
+
+Requirements:
+
+- create a Scheduler from st.session_state.owner
+- call sort_by_time()
+- call detect_conflicts()
+- display the sorted schedule in Streamlit
+- display conflict warnings clearly
+- keep the code simple and readable
+
+<br>
+
+RESULT:
+
+![alt text](image-41.png)
+![alt text](image-42.png)
+
+![alt text](image-43.png)
+![alt text](image-44.png)
+
+After connecting Add Task to the backend, I updated the Generate Schedule button to use the real Scheduler class. This allowed the app to sort tasks by time and display conflict warnings directly from the backend logic.
+
+---
+
+Phase 4 - Algorithmic Layer
 
 ---
 
