@@ -20,6 +20,46 @@ PHASE 1 - UML Design (Plan Mode):
 
 - **Scheduler:** organizes tasks into a daily plan.
 
+<br>
+
+Prompt for Copilot in Plan Mode:
+
+I am designing a Python backend system for a Streamlit app called PawPal+.
+
+The app helps a pet owner manage pet care tasks and generate a daily schedule.
+
+The system should include four main classes:
+
+Owner
+Pet
+Task
+Scheduler
+
+Requirements:
+
+- Owner stores pets
+- Pet stores tasks
+- Task represents a care activity with attributes like description, duration, priority, and completion status
+- Scheduler organizes tasks into a daily plan
+
+Please propose a simple UML-style class design showing:
+
+- attributes
+- key methods
+- relationships between classes
+
+Keep the design beginner-friendly and avoid unnecessary complexity.
+
+<br>
+
+RESULT:
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+
 ---
 
 ---
