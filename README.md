@@ -1,20 +1,4 @@
-# PawPal+ (Module 2 Project)
-
----
-
-## Initial Setup
-
-![alt text](image.png)
-
-I opened the PawPal+ starter project in VS Code, created the environment, installed dependencies, and confirmed the repo was ready for development. My goal was to understand the project structure before making changes.
-
----
-
----
-
----
-
----
+# PawPal+
 
 You are building **PawPal+**, a Streamlit app that helps a pet owner plan care tasks for their pet.
 
